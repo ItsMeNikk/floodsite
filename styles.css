@@ -1,0 +1,155 @@
+:root {
+    --bg-color: #1f2936;
+    --card-bg: #2b3648;
+    --text-color: #ffffff;
+    --text-secondary: #8e99a9;
+    --primary-color: #3390ec;
+    --border-color: #3d4b64;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, sans-serif;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    background: var(--bg-color);
+    color: var(--text-color);
+}
+
+.header {
+    text-align: center;
+    padding: 20px 0 30px 0;
+}
+
+.header h1 {
+    color: var(--text-color);
+    margin: 0;
+    margin-bottom: 15px;
+    font-size: 2.2em;
+}
+
+.header p {
+    color: var(--text-secondary);
+    margin: 0;
+    font-size: 1.1em;
+}
+
+.links-container {
+    background: var(--card-bg);
+    padding: 25px;
+    border-radius: 12px;
+    border: 1px solid var(--border-color);
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.bot-link {
+    text-align: center;
+    padding: 20px;
+    border-radius: 8px;
+    background: rgba(51, 144, 236, 0.1);
+    position: relative;
+    transition: transform 0.2s;
+}
+
+.bot-link:hover {
+    transform: translateY(-2px);
+}
+
+.bot-link.unavailable {
+    background: rgba(255, 45, 85, 0.1);
+    opacity: 0.8;
+}
+
+.bot-link.active {
+    background: rgba(0, 199, 62, 0.1);
+}
+
+.bot-link h3 {
+    margin: 0;
+    margin-bottom: 10px;
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+.bot-link a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-size: 1.3em;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.bot-link a:hover {
+    text-decoration: underline;
+}
+
+.bot-link .status {
+    margin: 8px 0 0 0;
+    font-size: 0.9em;
+    color: var(--text-secondary);
+}
+
+.bot-link.unavailable .status {
+    color: #ff2d55;
+}
+
+.bot-link.active .status {
+    color: #00c73e;
+}
+
+.contact-info {
+    text-align: center;
+    margin-top: 25px;
+    padding: 15px;
+    color: var(--text-secondary);
+    font-size: 1.1em;
+}
+
+.contact-info a {
+    color: var(--primary-color);
+    text-decoration: none;
+    font-weight: 500;
+    transition: color 0.2s;
+}
+
+.contact-info a:hover {
+    text-decoration: underline;
+}
+
+.loader-wrapper {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--bg-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s;
+}
+
+.loader {
+    width: 48px;
+    height: 48px;
+    border: 5px solid var(--text-secondary);
+    border-bottom-color: var(--primary-color);
+    border-radius: 50%;
+    animation: rotation 1s linear infinite;
+}
+
+.fade-out {
+    opacity: 0;
+}
+
+@keyframes rotation {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+} 
