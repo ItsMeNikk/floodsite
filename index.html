@@ -21,14 +21,20 @@
         <!-- Main Bot -->
         <div class="bot-link unavailable">
             <h3>Main Bot</h3>
-            <a href="https://t.me/mailfloodbot" target="_blank">@mailfloodbot</a>
+            <div class="username-container">
+                <a href="https://t.me/mailfloodbot" target="_blank">@mailfloodbot</a>
+                <button class="copy-btn" data-username="@mailfloodbot">Copy</button>
+            </div>
             <p class="status">Unavailable / Deleted</p>
         </div>
 
         <!-- Backup Bot -->
         <div class="bot-link active">
             <h3>Backup Bot</h3>
-            <a href="https://t.me/mailtester123bot" target="_blank">@mailtester123bot</a>
+            <div class="username-container">
+                <a href="https://t.me/mailtester123bot" target="_blank">@mailtester123bot</a>
+                <button class="copy-btn" data-username="@mailtester123bot">Copy</button>
+            </div>
             <p class="status">Functional</p>
         </div>
 
@@ -54,6 +60,42 @@
                 loader.style.display = 'none';
             }, 500);
         });
+
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', () => {
+                const username = button.getAttribute('data-username');
+                navigator.clipboard.writeText(username);
+                button.textContent = 'Copied!';
+                setTimeout(() => {
+                    button.textContent = 'Copy';
+                }, 1000);
+            });
+        });
     </script>
+
+    <style>
+        @media (max-width: 480px) {
+            body {
+                padding: 15px;
+            }
+            
+            .header h1 {
+                font-size: 1.8em;
+            }
+            
+            .bot-link {
+                padding: 15px;
+            }
+            
+            .username-container {
+                flex-direction: column;
+                gap: 8px;
+            }
+        }
+
+        .copy-btn.copied {
+            background: #00c73e;
+        }
+    </style>
 </body>
 </html> 
