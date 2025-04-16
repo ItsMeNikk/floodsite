@@ -258,6 +258,9 @@ body {
     align-items: center;
     gap: 8px;
     transition: all 0.2s ease;
+    width: 100%;
+    max-width: 500px;
+    justify-content: center;
 }
 
 .contact-info:hover {
@@ -286,11 +289,12 @@ body {
     text-align: center;
     font-size: 0.75em;
     color: var(--text-secondary);
+    width: 100%;
 }
 
-@media (max-width: 480px) {
+@media (max-width: 550px) {
     body {
-        padding: 15px;
+        padding: 20px 15px;
     }
     
     .header h1 {
@@ -300,10 +304,49 @@ body {
     .bot-link {
         padding: 15px;
     }
+}
+
+@media (max-width: 480px) {
+    .username-container {
+        flex-direction: row;
+        align-items: center;
+        flex-wrap: wrap;
+        gap: 10px;
+    }
+    
+    .username-container span {
+        font-size: 0.95em;
+    }
+    
+    .bot-link h3 {
+        font-size: 1.1em;
+    }
+    
+    .status {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 360px) {
+    body {
+        padding: 15px 10px;
+    }
+    
+    .header {
+        padding: 15px 10px;
+    }
+    
+    .bot-link {
+        padding: 12px;
+    }
     
     .username-container {
         flex-direction: column;
         align-items: flex-start;
-        gap: 8px;
+    }
+    
+    .copy-btn {
+        padding: 5px 10px;
+        font-size: 0.8em;
     }
 } 
