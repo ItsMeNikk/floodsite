@@ -4,6 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Flood Bot Services</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
@@ -14,50 +18,64 @@
 
     <div class="header">
         <h1>Flood Bot Services</h1>
-        <p>Cheapest SMS & Mail Flood Service on Telegram</p>
+        <p>SMS & Mail Flood Service on Telegram</p>
     </div>
     
     <div class="links-container">
         <!-- Main Bot -->
-        <div class="bot-link unavailable">
-            <h3>Main Bot</h3>
-            <div class="username-container">
-                <a href="https://t.me/mailfloodbot" target="_blank">@mailfloodbot</a>
-                <button class="copy-btn" data-username="@mailfloodbot">Copy</button>
+        <a href="https://t.me/mailbombbot" target="_blank" class="bot-wrapper">
+            <div class="bot-link active">
+                <h3><i class="fas fa-envelope"></i> Main Bot</h3>
+                <div class="username-container">
+                    <span><i class="fab fa-telegram"></i> @mailbombbot</span>
+                    <button class="copy-btn" data-username="@mailbombbot"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <p class="status"><span class="status-indicator"></span> Functional (recommended while purchasing credits)</p>
             </div>
-            <p class="status">Unavailable / Deleted</p>
-        </div>
-
-        <!-- Backup Bot -->
-        <div class="bot-link active">
-            <h3>Backup Bot</h3>
-            <div class="username-container">
-                <a href="https://t.me/mailtester123bot" target="_blank">@mailtester123bot</a>
-                <button class="copy-btn" data-username="@mailtester123bot">Copy</button>
-            </div>
-            <p class="status">Functional (recommended while purchasing credits)</p>
-        </div>
-        <div class="bot-link active">
-            <h3>Backup Bot 2</h3>
-            <div class="username-container">
-                <a href="https://t.me/nikktesstbot" target="_blank">@nikktesstbot</a>
-                <button class="copy-btn" data-username="@nikktesstbot">Copy</button>
-            </div>
-            <p class="status">Functional</p>
-        </div>
+        </a>
         
-        <!-- Template for adding new bots -->
-        <!-- Copy this template to add more bots:
-        <div class="bot-link active">
-            <h3>Bot Name</h3>
-            <a href="https://t.me/botusername" target="_blank">@botusername</a>
-            <p class="status">Status Message</p>
-        </div>
-        -->
+        <!-- Backup Bot -->
+        <a href="https://t.me/mailtester123bot" target="_blank" class="bot-wrapper">
+            <div class="bot-link active">
+                <h3><i class="fas fa-robot"></i> Backup Bot</h3>
+                <div class="username-container">
+                    <span><i class="fab fa-telegram"></i> @mailtester123bot</span>
+                    <button class="copy-btn" data-username="@mailtester123bot"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <p class="status"><span class="status-indicator"></span> Functional</p>
+            </div>
+        </a>
+        
+        <a href="https://t.me/nikktesstbot" target="_blank" class="bot-wrapper">
+            <div class="bot-link active">
+                <h3><i class="fas fa-robot"></i> Backup Bot 2</h3>
+                <div class="username-container">
+                    <span><i class="fab fa-telegram"></i> @nikktesstbot</span>
+                    <button class="copy-btn" data-username="@nikktesstbot"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <p class="status"><span class="status-indicator"></span> Functional</p>
+            </div>
+        </a>
+
+        <!-- Old Main Bot (Unavailable) -->
+        <a href="https://t.me/mailfloodbot" target="_blank" class="bot-wrapper">
+            <div class="bot-link unavailable">
+                <h3><i class="fas fa-robot"></i> Old Main Bot</h3>
+                <div class="username-container">
+                    <span><i class="fab fa-telegram"></i> @mailfloodbot</span>
+                    <button class="copy-btn" data-username="@mailfloodbot"><i class="fas fa-copy"></i> Copy</button>
+                </div>
+                <p class="status"><span class="status-indicator"></span> Unavailable / Deleted</p>
+            </div>
+        </a>
     </div>
 
     <div class="contact-info">
-        Contact <a href="https://t.me/gopixo" target="_blank">@gopixo</a> for purchasing credits / other queries
+        <i class="fas fa-headset"></i> Contact <a href="https://t.me/gopixo" target="_blank">@gopixo</a> for purchasing credits / other queries
+    </div>
+    
+    <div class="footer">
+        &copy; 2025 Flood Bot Services
     </div>
 
     <script>
@@ -73,37 +91,20 @@
             button.addEventListener('click', () => {
                 const username = button.getAttribute('data-username');
                 navigator.clipboard.writeText(username);
-                button.textContent = 'Copied!';
+                const originalText = button.innerHTML;
+                button.innerHTML = '<i class="fas fa-check"></i> Copied';
                 setTimeout(() => {
-                    button.textContent = 'Copy';
-                }, 1000);
+                    button.innerHTML = originalText;
+                }, 1500);
+            });
+        });
+        
+        // Stop propagation for buttons in the clickable cards
+        document.querySelectorAll('.copy-btn').forEach(button => {
+            button.addEventListener('click', (e) => {
+                e.stopPropagation();
             });
         });
     </script>
-
-    <style>
-        @media (max-width: 480px) {
-            body {
-                padding: 15px;
-            }
-            
-            .header h1 {
-                font-size: 1.8em;
-            }
-            
-            .bot-link {
-                padding: 15px;
-            }
-            
-            .username-container {
-                flex-direction: column;
-                gap: 8px;
-            }
-        }
-
-        .copy-btn.copied {
-            background: #00c73e;
-        }
-    </style>
 </body>
 </html> 
